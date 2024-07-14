@@ -11,8 +11,8 @@ import {
   Milwaukee,
 } from '../../assets/svg';
 
-import styles from './app.module.scss';
-import { clsx } from 'clsx';
+// import styles from './app.module.scss';
+// import { clsx } from 'clsx';
 
 export const App = () => {
   const [selectedOption, setSelectedOption] = useState<string>('option1');
