@@ -1,6 +1,6 @@
 import { IconProps } from './types';
 
-export const Location: React.FC<IconProps> = ({
+export const LocationIcon: React.FC<IconProps> = ({
   color = 'currentColor',
   ...props
 }) => {
