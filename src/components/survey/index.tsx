@@ -12,12 +12,9 @@ export const Survey = () => {
   const [selectedOption, setSelectedOption] = useState(1);
 
   const postData = async () => {
-    const response = await axios.post(
-      'https://1002.мкэлектро.рф/api/answers/',
-      {
-        choice: selectedOption,
-      },
-    );
+    await axios.post('https://1002.мкэлектро.рф/api/answers/', {
+      choice: selectedOption,
+    });
   };
 
   useEffect(() => {
