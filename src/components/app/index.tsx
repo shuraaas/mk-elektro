@@ -10,7 +10,7 @@ export const App = () => {
           width={200}
           height={400}
         />
-        <Festival className="relative left-1/2 z-20 -translate-x-1/2" />
+        <Festival className="relative -top-[10px] left-1/2 z-20 w-full -translate-x-1/2 sm:top-0" />
       </div>
       <Program />
       <Location />

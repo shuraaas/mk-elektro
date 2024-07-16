@@ -42,7 +42,7 @@ export const Survey = () => {
   };
 
   return (
-    <div className="relative flex w-full flex-col items-center pb-[174px] pt-5">
+    <div className="relative flex w-full flex-col items-center px-5 pb-[174px] pt-5">
       <Arrow
         className="absolute -top-[150px] right-0"
         width={400}
@@ -53,11 +53,13 @@ export const Survey = () => {
         width={900}
         height={1450}
       />
-      <div className="relative mb-32">
-        <h2 className="text-[30px] font-bold">Нам очень важно ваше мнение</h2>
-        <ArrowDown className="absolute left-1/2 top-5 -translate-x-1/2 transform" />
+      <div className="relative mb-5 rounded-md bg-white/50 p-5 shadow-lg sm:mb-32 sm:bg-transparent sm:p-0 sm:text-black sm:shadow-none">
+        <h2 className="text-center text-[30px] font-bold">
+          Нам очень важно ваше мнение
+        </h2>
+        <ArrowDown className="absolute left-1/2 top-5 hidden -translate-x-1/2 transform sm:block" />
       </div>
-      <div className="relative z-20 flex max-w-[500px] flex-col gap-5 rounded-lg bg-white p-10 shadow-lg">
+      <div className="relative z-20 flex max-w-[500px] flex-col gap-5 rounded-lg bg-white p-5 shadow-lg sm:p-10">
         <h3 className="text-[31.4px] font-extrabold">Опрос</h3>
         <form className="flex flex-col gap-5 text-base" onSubmit={handleSubmit}>
           <div className="flex flex-col gap-3">
