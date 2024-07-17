@@ -57,15 +57,12 @@ export const Survey = () => {
 
     const cookie = getCookie('answer');
 
-    if (!cookie) {
-      document.cookie = `answer=${selectedOption}; path=/; max-age=2592000`;
-      setIsAnswered(true);
-      postData();
+    if (cookie) return;
 
-      return;
-    } else {
-      return;
-    }
+    document.cookie = `answer=${selectedOption}; path=/; max-age=2592000`;
+    setIsAnswered(true);
+    postData();
+    window.location.replace('https://74.mkelektro.ru/');
   };
 
   return (

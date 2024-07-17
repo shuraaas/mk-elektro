@@ -3,7 +3,7 @@
 }
 
 .modal {
-  @apply relative rounded-lg bg-white p-5 shadow-lg;
+  @apply relative mx-5 max-w-[800px] rounded-lg bg-white p-5 shadow-lg sm:mx-10;
 }
 
 .closeBtn {

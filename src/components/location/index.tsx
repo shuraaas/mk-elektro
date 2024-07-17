@@ -23,8 +23,9 @@ export const Location = () => {
             <p>Клюквенная, 27а, с. Кременкуль</p>
           </div>
           <a
-            href="#"
+            href="https://go.2gis.com/v6igr"
             className="w-full text-center text-[#DE002B] underline transition hover:no-underline sm:w-[200px]"
+            target="_blank"
           >
             Как доехать?
           </a>
