@@ -10,6 +10,18 @@ export const Survey = () => {
     choices: { id: number; text: string }[];
   } | null>(null);
   const [selectedOption, setSelectedOption] = useState(1);
+  const [isAnswered, setIsAnswered] = useState(false);
+
+  const getCookie = (name: string) => {
+    let matches = document.cookie.match(
+      new RegExp(
+        '(?:^|; )' +
+          name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') +
+          '=([^;]*)',
+      ),
+    );
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  };
 
   const postData = async () => {
     await axios.post('https://1002.мкэлектро.рф/api/answers/', {
@@ -29,6 +41,11 @@ export const Survey = () => {
     };
 
     getData();
+
+    const cookie = getCookie('answer');
+    if (cookie) {
+      setIsAnswered(true);
+    }
   }, []);
 
   const handleOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +55,17 @@ export const Survey = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    postData();
+    const cookie = getCookie('answer');
+
+    if (!cookie) {
+      document.cookie = `answer=${selectedOption}; path=/; max-age=2592000`;
+      setIsAnswered(true);
+      postData();
+
+      return;
+    } else {
+      return;
+    }
   };
 
   return (
@@ -82,7 +109,8 @@ export const Survey = () => {
           </div>
           <button
             type="submit"
-            className="self-center rounded-xl bg-[#DE002B] px-4 py-2 text-[22px] font-semibold leading-[26.82px] text-white transition hover:bg-red-700"
+            className="self-center rounded-xl bg-[#DE002B] px-4 py-2 text-[22px] font-semibold leading-[26.82px] text-white transition hover:bg-red-700 disabled:opacity-50 disabled:hover:bg-[#DE002B]"
+            disabled={isAnswered}
           >
             Проголосовать
           </button>
